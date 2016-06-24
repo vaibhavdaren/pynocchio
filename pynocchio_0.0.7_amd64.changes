@@ -1,0 +1,22 @@
+Format: 1.8
+Date: Tue, 07 Jun 2016 20:01:05 +0000
+Source: pynocchio
+Binary: pynocchio
+Architecture: amd64
+Version: 0.0.7
+Distribution: trusty
+Urgency: low
+Maintainer: Michell Stuttgart Faria <michellstut@gmail.com>
+Changed-By: Michell Stuttgart Faria <michellstut@gmail.com>
+Description: 
+ pynocchio  - Pynocchio is a image viewer specialized in comic reading.
+Changes: 
+ pynocchio (0.0.7) trusty; urgency=low
+ .
+   * 389ad30 [NEW] Add dev requeriments.
+Checksums-Sha1: 
+ 8be3a38f6cc5d2767254abb3e40bec445dec9c8a 3293962 pynocchio_0.0.7_amd64.deb
+Checksums-Sha256: 
+ 15a27e6dca0d59aa961f07bf390939fab6eeb2b5e9b4461af6d20d64b48f53ae 3293962 pynocchio_0.0.7_amd64.deb
+Files: 
+ 5ab5fdbdd912248e587b8b6af4890c04 3293962 graphics extra pynocchio_0.0.7_amd64.deb

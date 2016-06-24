@@ -1,0 +1,13 @@
+debian/linux/applications/pynocchio.desktop usr/share/applications
+debian/linux/pixmaps/pynocchio.png usr/share/pixmaps
+
+debian/linux/locale/pynocchio_en_US.qm usr/share/pynocchio/locale
+debian/linux/locale/pynocchio_pt_BR.qm usr/share/pynocchio/locale
+
+debian/linux/hicolor/16x16/apps/pynocchio.png usr/share/icons/hicolor/16x16/apps
+debian/linux/hicolor/32x32/apps/pynocchio.png usr/share/icons/hicolor/32x32/apps
+debian/linux/hicolor/48x48/apps/pynocchio.png usr/share/icons/hicolor/48x48/apps
+debian/linux/hicolor/128x128/apps/pynocchio.png usr/share/icons/hicolor/128x128/apps
+debian/linux/hicolor/256x256/apps/pynocchio.png usr/share/icons/hicolor/256x256/apps
+
+debian/linux/bin/pynocchio usr/bin

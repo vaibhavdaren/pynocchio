@@ -1,6 +1,6 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 
 sudo: required
 
@@ -8,16 +8,34 @@ virtualenv:
   system_site_packages: true
 
 install:
-  - pip install -r requirements.txt
-  - sudo apt-get install -qq python-pyside --fix-missing
+- sudo apt-get install devscripts python-virtualenv git equivs cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
+- pip install -r dev-requirements.txt
+- pip install -U PySide==1.2.4
+- git clone https://github.com/spotify/dh-virtualenv.git
+- cd dh-virtualenv
+- sudo mk-build-deps -ri
+- dpkg-buildpackage -us -uc -b
+- sudo dpkg -i ../dh-virtualenv_0.11.deb
+- rm -f ../dh-virtualenv_0.11.deb
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
 
 script:
-  - coverage run setup.py test
+- coverage run setup.py test
+- cd script && sh build_deb.sh
 
 after_success:
-  - coveralls
+- coveralls
+
+deploy:
+  provider: packagecloud
+  repository: pynocchio
+  username: mstuttgart
+  token:
+    secure: 4CCXQAT+ZcjXnbFHyvLH+5rCIYLWiu/uj2+edgaBz2m3JCvbIm6lucTRzygHLisS2bCws/jxP8Hau5R3azQIHrzmLbxEJwDXJbHD56hcccWMc7PErx7CG33RhStBaj+rJyu0htk5gupuWUolXc4mUAC8Hq+lr/kReieNR3+vFxzxC3iD/TA18W0DS9gG9H9ze/gAI/M9O8q7lzBEoOTM8eqrJUlwBoT/+StPdPO8fd1F5qQ+FolkZgsdnH9CWBW23+SguXFuUV+Ir9dUt9SepU0CJLSEYRMV3wk1E1dp4fmm56bbaHvqW/GT2HREYt8Chxh7KuEE+JM5tjnbL2y+C5rpbRHBLUQU1dnwieBXn896k6ibOtBvjOawuSvuHrOe91Sl8t77R2AhYs7LM03Y2vnmS1bbZgsO/Ps6IdblDSQ8IFir7EhV8e6783wdiRV59vR8DQa9cpSvS7OdXnCq9q6a6Re5nZgQokYjNAaCrlxIwEYU2j/7UfRRrTjwt6LUn9wVvT5Y2eM6HRV3YZC3rfo+70vJQnRm+HeUL8lSYLFGGTgv8+k1uK8WLMdFB9EPX8jwLsEjESS1ALQgrl1dnnENE9wVWOoFpDPi4vy8pX2cx4mXQQ47tPNQRnldpO/UDCLIZRTUl4tLByu9ivti48f8Z0ZDf8Lmeo0t5pKdK2c=
+  dist: linuxmint/rosa
+  on:
+    branch: develop

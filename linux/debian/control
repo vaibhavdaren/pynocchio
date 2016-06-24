@@ -1,0 +1,16 @@
+Source: pynocchio
+Section: graphics
+Priority: extra
+Maintainer: Michell Stuttgart Faria <michellstut@gmail.com>
+Build-Depends: debhelper (>= 9), python, dh-virtualenv (>= 0.6)
+Standards-Version: 3.9.5
+
+Package: pynocchio
+Architecture: any
+Pre-Depends: dpkg (>= 1.16.1), python2.7-minimal | python2.6-minimal, build-essential, cmake, libqt4-dev, libphonon-dev, python2.7-dev, libxml2-dev, libxslt1-dev, qtmobility-dev, libqtwebkit-dev
+Depends: python-pyside (>= 1.2.1), libqt4-sql-sqlite (>= 4.8.5)
+Description: Pynocchio is a image viewer specialized in comic reading.
+ Pynocchio is a new and nice image viewer specialized in
+ comic reading. It is a comic reader that allow read cbr,
+ cbz and cbt files and have nice elementary icons theme on your
+ interface.

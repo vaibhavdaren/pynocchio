@@ -80,3 +80,10 @@ class Pynocchio(QtGui.QApplication):
                 self.view.open_comics(filename)
 
         sys.exit(self.exec_())
+
+
+def main():
+    Pynocchio().run()
+
+if __name__ == '__main__':
+    main()
